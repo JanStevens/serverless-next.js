@@ -1,6 +1,6 @@
 import { PrerenderManifest } from "next/dist/build";
 import {
-  ApiManifest,
+  PageManifest,
   handleApi,
   prepareBuildManifests,
   RoutesManifest
@@ -9,7 +9,7 @@ import { mockEvent } from "./utils";
 
 describe("Api handler", () => {
   let pagesManifest: { [key: string]: string };
-  let manifest: ApiManifest;
+  let manifest: PageManifest;
   let routesManifest: RoutesManifest;
   let getPage: any;
 

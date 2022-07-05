@@ -3,7 +3,7 @@ import { dropLocaleFromPath } from "./locale";
 import { matchDynamic } from "../match";
 import { getRewritePath, isExternalRewrite } from "./rewrite";
 import {
-  ApiManifest,
+  PageManifest,
   ApiRoute,
   ExternalRoute,
   RoutesManifest,
@@ -13,7 +13,7 @@ import {
 export const handleApiReq = (
   req: Request,
   uri: string,
-  manifest: ApiManifest,
+  manifest: PageManifest,
   routesManifest: RoutesManifest,
   isRewrite?: boolean
 ): ExternalRoute | ApiRoute | undefined => {

@@ -1,6 +1,5 @@
 import { BuildOptions, DynamicPageKeyValue, NextConfig } from "./types";
 import {
-  ApiManifest,
   DynamicSSG,
   Manifest,
   PageManifest,
@@ -22,7 +21,6 @@ export const prepareBuildManifests = async (
   publicFiles: string[]
 ): Promise<{
   pageManifest: PageManifest;
-  apiManifest: ApiManifest;
   imageManifest: Manifest;
 }> => {
   const {
@@ -37,6 +35,10 @@ export const prepareBuildManifests = async (
 
   const pageManifest: PageManifest = {
     buildId,
+    apis: {
+      dynamic: [],
+      nonDynamic: {}
+    },
     pages: {
       dynamic: [],
       ssr: {
@@ -60,19 +62,10 @@ export const prepareBuildManifests = async (
     hasApiPages: false
   };
 
-  const apiManifest: ApiManifest = {
-    apis: {
-      dynamic: [],
-      nonDynamic: {}
-    },
-    domainRedirects,
-    authentication
-  };
-
   const allSsrPages = pageManifest.pages.ssr;
   const ssgPages = pageManifest.pages.ssg;
   const htmlPages = pageManifest.pages.html;
-  const apiPages = apiManifest.apis;
+  const apiPages = pageManifest.apis;
   const dynamicApi: DynamicPageKeyValue = {};
 
   const isHtmlPage = (path: string): boolean => path.endsWith(".html");
@@ -243,7 +236,7 @@ export const prepareBuildManifests = async (
 
   // Sort api routes
   const sortedApi = getSortedRoutes(Object.keys(dynamicApi));
-  apiManifest.apis.dynamic = sortedApi.map((route) => {
+  pageManifest.apis.dynamic = sortedApi.map((route) => {
     return {
       file: dynamicApi[route].file,
       regex: pathToRegexStr(route)
@@ -265,7 +258,6 @@ export const prepareBuildManifests = async (
 
   return {
     pageManifest,
-    apiManifest,
     imageManifest
   };
 };

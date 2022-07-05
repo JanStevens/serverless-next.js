@@ -1,4 +1,4 @@
-import { ApiManifest, PageManifest } from "@sls-next/core";
+import { PageManifest } from "@sls-next/core";
 export { ImageConfig, ImagesManifest, RoutesManifest } from "@sls-next/core";
 
 export type LambdaManifest = {
@@ -9,7 +9,7 @@ export type LambdaManifest = {
   logExecutionTimes?: boolean;
 };
 
-export type BuildManifest = ApiManifest & PageManifest;
+export type BuildManifest = PageManifest;
 
 export type PreRenderedManifest = {
   version: 3;

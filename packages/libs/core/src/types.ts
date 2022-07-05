@@ -71,15 +71,12 @@ export type Manifest = {
   trailingSlash?: boolean;
 };
 
-export type ApiManifest = Manifest & {
+export type PageManifest = Manifest & {
+  buildId: string;
   apis: {
     dynamic: Dynamic[];
     nonDynamic: { [key: string]: string };
   };
-};
-
-export type PageManifest = Manifest & {
-  buildId: string;
   pages: {
     dynamic: DynamicRoute[];
     html: {

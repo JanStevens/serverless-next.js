@@ -1,6 +1,5 @@
 import { PrerenderManifest } from "next/dist/build";
 import {
-  ApiManifest,
   handleApi,
   handleDefault,
   PageManifest,
@@ -19,7 +18,7 @@ const wrongAuthHeaders = {
 
 describe("Basic authentication", () => {
   let pagesManifest: { [key: string]: string };
-  let apiManifest: ApiManifest;
+  let apiManifest: PageManifest;
   let pageManifest: PageManifest;
   let prerenderManifest: PrerenderManifest;
   let routesManifest: RoutesManifest;

@@ -12,11 +12,10 @@ import {
   getTrailingSlashPath
 } from "./redirect";
 import {
-  ApiManifest,
+  PageManifest,
   ApiRoute,
   ExternalRoute,
   Manifest,
-  PageManifest,
   PrerenderManifest,
   RedirectRoute,
   Request,
@@ -116,7 +115,7 @@ const handleTrailingSlash = (
  */
 export const routeApi = (
   req: Request,
-  manifest: ApiManifest,
+  manifest: PageManifest,
   routesManifest: RoutesManifest
 ): ApiRoute | ExternalRoute | RedirectRoute | UnauthorizedRoute | undefined => {
   const auth = handleAuth(req, manifest);

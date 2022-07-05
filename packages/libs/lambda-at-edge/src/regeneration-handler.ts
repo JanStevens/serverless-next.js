@@ -33,6 +33,14 @@ export const handler = async (event: AWSLambda.SQSEvent): Promise<void> => {
         .replace(`static-pages/${manifest.buildId}`, "")
         .replace(/.js$/, "");
 
+      console.log(
+        `JSDB: Trigger revalidation`,
+        JSON.stringify({
+          normalizedUri: normalizedUri,
+          regenerationEvent
+        })
+      );
+
       await s3StorePage({
         html,
         uri: normalizedUri,

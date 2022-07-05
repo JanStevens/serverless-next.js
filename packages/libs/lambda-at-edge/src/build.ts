@@ -786,15 +786,14 @@ class Builder {
       domainRedirects: this.buildOptions.domainRedirects ?? {}
     };
 
-    const { apiManifest, imageManifest, pageManifest } =
-      await prepareBuildManifests(
-        options,
-        await this.readNextConfig(),
-        routesManifest,
-        await this.readPagesManifest(),
-        prerenderManifest,
-        await this.readPublicFiles(assetIgnorePatterns)
-      );
+    const { imageManifest, pageManifest } = await prepareBuildManifests(
+      options,
+      await this.readNextConfig(),
+      routesManifest,
+      await this.readPagesManifest(),
+      prerenderManifest,
+      await this.readPublicFiles(assetIgnorePatterns)
+    );
 
     const {
       enableHTTPCompression,
@@ -804,7 +803,7 @@ class Builder {
     } = this.buildOptions;
 
     const apiBuildManifest = {
-      ...apiManifest,
+      ...pageManifest,
       enableHTTPCompression
     };
     const defaultBuildManifest = {

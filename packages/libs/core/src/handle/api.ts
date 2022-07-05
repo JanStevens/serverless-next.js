@@ -4,7 +4,7 @@ import { redirect } from "./redirect";
 import { toRequest } from "./request";
 import { routeApi } from "../route";
 import {
-  ApiManifest,
+  PageManifest,
   ApiRoute,
   Event,
   ExternalRoute,
@@ -24,9 +24,10 @@ import { unauthorized } from "./unauthorized";
  */
 export const handleApi = async (
   event: Event,
-  manifest: ApiManifest,
+  manifest: PageManifest,
   routesManifest: RoutesManifest,
-  getPage: (page: string) => any
+  getPage: (page: string) => any,
+  revalidate?: (path: string) => Promise<void>
 ): Promise<ExternalRoute | void> => {
   const request = toRequest(event);
   const route = routeApi(request, manifest, routesManifest);
@@ -48,9 +49,17 @@ export const handleApi = async (
     }
     if (!event.res.hasOwnProperty("originalResponse")) {
       Object.defineProperty(event.res, "originalResponse", {
-        get: () => event.res
+        get: () => {
+          // @ts-expect-error Magic
+          event.res.meta = { revalidate };
+          return event.res;
+        }
       });
+    } else {
+      // @ts-expect-error Magic
+      event.res.originalResponse.meta = { revalidate };
     }
+
     getPage(page).default(event.req, event.res);
     return;
   }
