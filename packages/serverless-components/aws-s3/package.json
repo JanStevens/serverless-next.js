@@ -1,5 +1,5 @@
 {
-  "name": "@sls-next/aws-s3",
+  "name": "@sls-next-n5/aws-s3",
   "version": "3.7.0",
   "main": "./serverless.js",
   "publishConfig": {

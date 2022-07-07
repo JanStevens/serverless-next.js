@@ -1,5 +1,5 @@
 {
-  "name": "@sls-next/aws-common",
+  "name": "@sls-next-n5/aws-common",
   "version": "3.8.0-alpha.0",
   "description": "Common AWS code that is used in Lambda, Lambda@Edge and other AWS platforms.",
   "publishConfig": {

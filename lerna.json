@@ -1,5 +1,5 @@
 {
-  "version": "3.8.0-alpha.1",
+  "version": "3.8.0-alpha.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
@@ -19,7 +19,6 @@
   "packages": [
     "packages/compat-layers/*",
     "packages/serverless-components/*",
-    "packages/libs/*",
-    "packages/deprecated/*"
+    "packages/libs/*"
   ]
 }

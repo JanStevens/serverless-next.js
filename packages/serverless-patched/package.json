@@ -1,5 +1,5 @@
 {
-  "name": "@sls-next/serverless-patched",
+  "name": "@sls-next-n5/serverless-patched",
   "version": "3.5.0-alpha.8",
   "description": "Patched serverless package",
   "publishConfig": {

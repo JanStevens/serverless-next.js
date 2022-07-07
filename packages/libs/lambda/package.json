@@ -1,5 +1,5 @@
 {
-  "name": "@sls-next/lambda",
+  "name": "@sls-next-n5/lambda",
   "version": "3.8.0-alpha.0",
   "description": "Code to build and deploy for Lambda + API Gateway",
   "publishConfig": {
