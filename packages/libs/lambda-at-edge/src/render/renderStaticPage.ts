@@ -6,7 +6,7 @@ import {
   Route,
   RoutesManifest,
   StaticRoute
-} from "@sls-next/core";
+} from "@sls-next-n5/core";
 import { CloudFrontRequest, CloudFrontResultResponse } from "aws-lambda";
 import { OriginRequestDefaultHandlerManifest } from "../types";
 import { Readable } from "stream";

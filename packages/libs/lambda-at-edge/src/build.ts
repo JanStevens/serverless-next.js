@@ -9,16 +9,16 @@ import {
   RoutesManifest,
   OriginRequestImageHandlerManifest
 } from "./types";
-import pathToPosix from "@sls-next/core/dist/build/lib/pathToPosix";
-import normalizeNodeModules from "@sls-next/core/dist/build/lib/normalizeNodeModules";
-import createServerlessConfig from "@sls-next/core/dist/build/lib/createServerlessConfig";
-import { isTrailingSlashRedirect } from "@sls-next/core/dist/build/lib/redirector";
-import readDirectoryFiles from "@sls-next/core/dist/build/lib/readDirectoryFiles";
-import filterOutDirectories from "@sls-next/core/dist/build/lib/filterOutDirectories";
+import pathToPosix from "@sls-next-n5/core/dist/build/lib/pathToPosix";
+import normalizeNodeModules from "@sls-next-n5/core/dist/build/lib/normalizeNodeModules";
+import createServerlessConfig from "@sls-next-n5/core/dist/build/lib/createServerlessConfig";
+import { isTrailingSlashRedirect } from "@sls-next-n5/core/dist/build/lib/redirector";
+import readDirectoryFiles from "@sls-next-n5/core/dist/build/lib/readDirectoryFiles";
+import filterOutDirectories from "@sls-next-n5/core/dist/build/lib/filterOutDirectories";
 import { Job } from "@vercel/nft/out/node-file-trace";
-import { prepareBuildManifests } from "@sls-next/core";
-import { NextConfig } from "@sls-next/core";
-import { NextI18nextIntegration } from "@sls-next/core/dist/build/third-party/next-i18next";
+import { prepareBuildManifests } from "@sls-next-n5/core";
+import { NextConfig } from "@sls-next-n5/core";
+import { NextI18nextIntegration } from "@sls-next-n5/core/dist/build/third-party/next-i18next";
 import normalizePath from "normalize-path";
 
 export const DEFAULT_LAMBDA_CODE_DIR = "default-lambda";
@@ -233,7 +233,7 @@ class Builder {
   ): Promise<void> {
     const source = path.dirname(
       require.resolve(
-        `@sls-next/lambda-at-edge/dist/${handlerType}/${
+        `@sls-next-n5/lambda-at-edge/dist/${handlerType}/${
           shouldMinify ? "minified" : "standard"
         }`
       )
@@ -529,7 +529,7 @@ class Builder {
       ),
       fse.copy(
         join(
-          path.dirname(require.resolve("@sls-next/core/package.json")),
+          path.dirname(require.resolve("@sls-next-n5/core/package.json")),
           "dist",
           "sharp_node_modules"
         ),

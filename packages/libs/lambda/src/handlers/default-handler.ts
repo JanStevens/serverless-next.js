@@ -13,8 +13,8 @@ import {
   RegenerationEventRequest,
   regenerationHandler,
   RoutesManifest
-} from "@sls-next/core";
-import { AwsPlatformClient } from "@sls-next/aws-common";
+} from "@sls-next-n5/core";
+import { AwsPlatformClient } from "@sls-next-n5/aws-common";
 import { BuildManifest, LambdaManifest } from "src/types";
 import { httpCompat } from "src/compat/apigw";
 import {

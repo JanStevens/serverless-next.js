@@ -35,9 +35,9 @@ const generateConfig = (input) => ({
     commonjs(),
     externals({
       exclude: [
-        "@sls-next/next-aws-cloudfront",
-        "@sls-next/core",
-        "@sls-next/aws-common",
+        "@sls-next-n5/next-aws-cloudfront",
+        "@sls-next-n5/core",
+        "@sls-next-n5/aws-common",
         "next"
       ]
     }),

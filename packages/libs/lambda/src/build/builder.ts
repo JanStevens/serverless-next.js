@@ -1,9 +1,9 @@
 import fse from "fs-extra";
 import { join } from "path";
 import path from "path";
-import { ImageBuildManifest, PageManifest } from "@sls-next/core";
-import CoreBuilder from "@sls-next/core/dist/build/builder";
-import { Manifest, CoreBuildOptions } from "@sls-next/core";
+import { ImageBuildManifest, PageManifest } from "@sls-next-n5/core";
+import CoreBuilder from "@sls-next-n5/core/dist/build/builder";
+import { Manifest, CoreBuildOptions } from "@sls-next-n5/core";
 import { LambdaBuildOptions, LambdaManifest } from "src/types";
 
 export const DEFAULT_LAMBDA_CODE_DIR = "default-lambda";
@@ -80,7 +80,7 @@ export class LambdaBuilder extends CoreBuilder {
   ): Promise<void> {
     const source = path.dirname(
       require.resolve(
-        `@sls-next/lambda/dist/bundles/${handlerType}/${
+        `@sls-next-n5/lambda/dist/bundles/${handlerType}/${
           shouldMinify ? "minified" : "standard"
         }`
       )
@@ -194,7 +194,7 @@ export class LambdaBuilder extends CoreBuilder {
       ),
       fse.copy(
         join(
-          path.dirname(require.resolve("@sls-next/core/package.json")),
+          path.dirname(require.resolve("@sls-next-n5/core/package.json")),
           "dist",
           "sharp_node_modules"
         ),

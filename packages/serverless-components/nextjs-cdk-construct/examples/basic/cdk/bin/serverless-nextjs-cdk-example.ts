@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import { App } from 'aws-cdk-lib';
-import { Builder } from "@sls-next/lambda-at-edge";
+import { Builder } from "@sls-next-n5/lambda-at-edge";
 import { ServerlessNextjsCdkExampleStack } from '../serverless-nextjs-cdk-example-stack';
 
 const builder = new Builder(".", "./build", { args: ["build"] });

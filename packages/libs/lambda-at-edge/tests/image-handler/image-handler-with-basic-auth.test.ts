@@ -1,6 +1,6 @@
 import { createCloudFrontEvent } from "../test-utils";
 import { handler } from "../../src/image-handler";
-import { ImagesManifest, PlatformClient } from "@sls-next/core/dist";
+import { ImagesManifest, PlatformClient } from "@sls-next-n5/core/dist";
 import { IncomingMessage, ServerResponse } from "http";
 import { UrlWithParsedQuery } from "url";
 
@@ -28,7 +28,7 @@ jest.mock(
   }
 );
 
-jest.mock("@sls-next/core/dist/module", () => {
+jest.mock("@sls-next-n5/core/dist/module", () => {
   return {
     imageOptimizer: jest.fn(
       (
@@ -44,10 +44,10 @@ jest.mock("@sls-next/core/dist/module", () => {
         res.end("success");
       }
     ),
-    handleAuth: jest.requireActual("@sls-next/core/dist/module").handleAuth,
-    handleDomainRedirects: jest.requireActual("@sls-next/core/dist/module")
+    handleAuth: jest.requireActual("@sls-next-n5/core/dist/module").handleAuth,
+    handleDomainRedirects: jest.requireActual("@sls-next-n5/core/dist/module")
       .handleDomainRedirects,
-    setCustomHeaders: jest.requireActual("@sls-next/core/dist/module")
+    setCustomHeaders: jest.requireActual("@sls-next-n5/core/dist/module")
       .setCustomHeaders
   };
 });
