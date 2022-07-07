@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0-alpha.2](https://github.com/JanStevens/serverless-next.js/compare/v3.8.0-alpha.1...v3.8.0-alpha.2) (2022-07-07)
+
+### Bug Fixes
+
+- dont store an empty html page ([af99153](https://github.com/JanStevens/serverless-next.js/commit/af9915321fc33f0476323eae8dcdb6c92c2389b5))
+
 # [3.8.0-alpha.1](https://github.com/JanStevens/serverless-next.js/compare/v3.8.0-alpha.0...v3.8.0-alpha.1) (2022-07-07)
 
 **Note:** Version bump only for package @sls-next-n5/next-aws-lambda
-
-
-
-
 
 # [3.5.0](https://github.com/serverless-nextjs/serverless-next.js/compare/v3.5.0-alpha.11...v3.5.0) (2021-10-28)
 
