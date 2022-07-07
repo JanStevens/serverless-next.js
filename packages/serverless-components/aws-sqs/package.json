@@ -1,5 +1,5 @@
 {
-  "name": "@sls-next/aws-sqs",
+  "name": "@sls-next-n5/aws-sqs",
   "version": "3.7.0",
   "main": "serverless.js",
   "publishConfig": {
@@ -17,9 +17,9 @@
   "author": "Daniel Conde Marin <danielconde9@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/serverless-nextjs/serverless-next.js/issues"
+    "url": "https://github.com/JanStevens/serverless-next.js/issues"
   },
-  "homepage": "https://github.com/serverless-nextjs/serverless-next.js#readme",
+  "homepage": "https://github.com/JanStevens/serverless-next.js#readme",
   "dependencies": {
     "@serverless/core": "1.1.2",
     "aws-sdk": "2.1093.0",

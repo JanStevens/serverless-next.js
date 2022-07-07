@@ -1,5 +1,5 @@
 {
-  "name": "@sls-next/next-aws-lambda",
+  "name": "@sls-next-n5/next-aws-lambda",
   "publishConfig": {
     "access": "public"
   },
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/serverless-nextjs/serverless-next.js.git",
+    "url": "git+https://github.com/JanStevens/serverless-next.js.git",
     "directory": "packages/compat-layers/apigw-lambda-compat"
   },
   "author": "Daniel Conde Marin <danielconde9@gmail.com>",

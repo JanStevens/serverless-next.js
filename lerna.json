@@ -19,7 +19,6 @@
   "packages": [
     "packages/compat-layers/*",
     "packages/serverless-components/*",
-    "packages/libs/*",
-    "packages/deprecated/*"
+    "packages/libs/*"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@sls-next/serverless-component",
+  "name": "@sls-next-n5/serverless-component",
   "publishConfig": {
     "access": "public"
   },
@@ -9,7 +9,7 @@
   "types": "dist/component.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/serverless-nextjs/serverless-next.js.git",
+    "url": "git+https://github.com/JanStevens/serverless-next.js.git",
     "directory": "packages/serverless-components/nextjs-component"
   },
   "scripts": {
@@ -26,9 +26,9 @@
   "author": "Daniel Conde Marin <danielconde9@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/serverless-nextjs/serverless-next.js/issues"
+    "url": "https://github.com/JanStevens/serverless-next.js/issues"
   },
-  "homepage": "https://github.com/serverless-nextjs/serverless-next.js#readme",
+  "homepage": "https://github.com/JanStevens/serverless-next.js#readme",
   "engines": {
     "node": ">=10.11.0"
   },
