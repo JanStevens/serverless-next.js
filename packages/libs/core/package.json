@@ -81,5 +81,6 @@
     "modulePathIgnorePatterns": [
       "/sharp_node_modules/"
     ]
-  }
+  },
+  "gitHead": "2417ba7d97a97aaf7c5b56423a5da5e9e75c9751"
 }

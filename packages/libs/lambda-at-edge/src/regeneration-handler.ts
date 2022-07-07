@@ -33,6 +33,9 @@ export const handler = async (event: AWSLambda.SQSEvent): Promise<void> => {
         .replace(`static-pages/${manifest.buildId}`, "")
         .replace(/.js$/, "");
 
+      // If we didn't get any html back, don't write an empty file
+      if (!html) return;
+
       await s3StorePage({
         html,
         uri: normalizedUri,
