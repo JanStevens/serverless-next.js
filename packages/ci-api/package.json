@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/serverless-nextjs/serverless-next.js"
+    "url": "git+https://github.com/JanStevens/serverless-next.js"
   },
   "keywords": [],
   "author": "Daniel Phang",
   "license": "MIT",
-  "homepage": "https://github.com/serverless-nextjs/serverless-next.js",
+  "homepage": "https://github.com/JanStevens/serverless-next.js",
   "dependencies": {
     "@octokit/rest": "^18.12.0"
   },

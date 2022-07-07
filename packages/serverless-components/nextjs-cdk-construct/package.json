@@ -20,11 +20,11 @@
     "test": "jest"
   },
   "bugs": {
-    "url": "https://github.com/serverless-nextjs/serverless-next.js/issues"
+    "url": "https://github.com/JanStevens/serverless-next.js/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/serverless-nextjs/serverless-next.js.git",
+    "url": "git+https://github.com/JanStevens/serverless-next.js.git",
     "directory": "packages/serverless-components/nextjs-cdk-construct"
   },
   "license": "MIT",
