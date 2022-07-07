@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0-alpha.1](https://github.com/JanStevens/serverless-next.js/compare/v3.8.0-alpha.0...v3.8.0-alpha.1) (2022-07-07)
+
+
+### Bug Fixes
+
+* don't fallback on rendering the html when the page is not found ([995cc38](https://github.com/JanStevens/serverless-next.js/commit/995cc383a35e26d12827593839cae5480c204105))
+
+
+
+
+
 # [3.8.0-alpha.0](https://github.com/serverless-nextjs/serverless-next.js/compare/v3.7.0...v3.8.0-alpha.0) (2022-04-20)
 
 ### Bug Fixes
