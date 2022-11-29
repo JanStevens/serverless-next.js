@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0-alpha.5](https://github.com/JanStevens/serverless-next.js/compare/v3.8.0-alpha.4...v3.8.0-alpha.5) (2022-11-29)
+
+### Bug Fixes
+
+- correctly pass enableHTTPCompression ([6981e67](https://github.com/JanStevens/serverless-next.js/commit/6981e6729b41439193e5dd855825fdb3ad41ee0a))
+
 # [3.8.0-alpha.4](https://github.com/JanStevens/serverless-next.js/compare/v3.8.0-alpha.3...v3.8.0-alpha.4) (2022-11-29)
 
 ### Bug Fixes
