@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0-alpha.4](https://github.com/JanStevens/serverless-next.js/compare/v3.8.0-alpha.3...v3.8.0-alpha.4) (2022-11-29)
+
+### Bug Fixes
+
+- apply different PR to fixup multiple issues in serverless-nextjs ([600ae47](https://github.com/JanStevens/serverless-next.js/commit/600ae4712f34548b4d3633c24325162d489e957f))
+
 # [3.8.0-alpha.3](https://github.com/JanStevens/serverless-next.js/compare/v3.8.0-alpha.2...v3.8.0-alpha.3) (2022-07-07)
 
 ### Bug Fixes

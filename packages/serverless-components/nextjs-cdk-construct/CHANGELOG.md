@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0-alpha.4](https://github.com/JanStevens/serverless-next.js/compare/v3.8.0-alpha.3...v3.8.0-alpha.4) (2022-11-29)
+
+**Note:** Version bump only for package @sls-next-n5/cdk-construct
+
 # [3.8.0-alpha.3](https://github.com/JanStevens/serverless-next.js/compare/v3.8.0-alpha.2...v3.8.0-alpha.3) (2022-07-07)
 
 ### Bug Fixes
