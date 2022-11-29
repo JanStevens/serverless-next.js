@@ -16,30 +16,38 @@ import { removeBlacklistedHeaders } from "./headers/removeBlacklistedHeaders";
 export const handler = async (
   event: OriginRequestEvent
 ): Promise<CloudFrontResultResponse> => {
-  const request = event.Records[0].cf.request;
-  const routesManifest: RoutesManifest = RoutesManifestJson;
-  const buildManifest: OriginRequestApiHandlerManifest = manifest;
-  const { req, res, responsePromise } = cloudFrontCompat(event.Records[0].cf, {
-    enableHTTPCompression: buildManifest.enableHTTPCompression
-  });
+  try {
+    const request = event.Records[0].cf.request;
+    const routesManifest: RoutesManifest = RoutesManifestJson;
+    const buildManifest: OriginRequestApiHandlerManifest = manifest;
+    const { req, res, responsePromise } = cloudFrontCompat(
+      event.Records[0].cf,
+      {
+        enableHTTPCompression: buildManifest.enableHTTPCompression
+      }
+    );
 
-  const external = await handleApi(
-    { req, res, responsePromise },
-    buildManifest,
-    routesManifest,
-    (pagePath: string) => require(`./${pagePath}`)
-  );
+    const external = await handleApi(
+      { req, res, responsePromise },
+      buildManifest,
+      routesManifest,
+      (pagePath: string) => require(`./${pagePath}`)
+    );
 
-  if (external) {
-    const { path } = external;
-    await createExternalRewriteResponse(path, req, res, request.body?.data);
+    if (external) {
+      const { path } = external;
+      await createExternalRewriteResponse(path, req, res, request.body?.data);
+    }
+
+    const response = await responsePromise;
+
+    if (response.headers) {
+      removeBlacklistedHeaders(response.headers);
+    }
+
+    return response;
+  } catch (e) {
+    console.error("Error occurred while handling the request", e);
+    throw e;
   }
-
-  const response = await responsePromise;
-
-  if (response.headers) {
-    removeBlacklistedHeaders(response.headers);
-  }
-
-  return response;
 };

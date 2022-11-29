@@ -100,41 +100,46 @@ const normaliseS3OriginDomain = (s3Origin: CloudFrontS3Origin): string => {
 export const handler = async (
   event: OriginRequestEvent | OriginResponseEvent
 ): Promise<CloudFrontResultResponse | CloudFrontRequest> => {
-  const manifest: OriginRequestDefaultHandlerManifest = Manifest;
-  let response: CloudFrontResultResponse | CloudFrontRequest;
-  const prerenderManifest: PrerenderManifestType = PrerenderManifest;
-  const routesManifest: RoutesManifest = RoutesManifestJson;
+  try {
+    const manifest: OriginRequestDefaultHandlerManifest = Manifest;
+    let response: CloudFrontResultResponse | CloudFrontRequest;
+    const prerenderManifest: PrerenderManifestType = PrerenderManifest;
+    const routesManifest: RoutesManifest = RoutesManifestJson;
 
-  const { now, log } = perfLogger(manifest.logLambdaExecutionTimes);
+    const { now, log } = perfLogger(manifest.logLambdaExecutionTimes);
 
-  const tHandlerBegin = now();
+    const tHandlerBegin = now();
 
-  if (isOriginResponse(event)) {
-    response = await handleOriginResponse({
-      event,
-      manifest,
-      prerenderManifest,
-      routesManifest
-    });
-  } else {
-    response = await handleOriginRequest({
-      event,
-      manifest,
-      prerenderManifest,
-      routesManifest
-    });
+    if (isOriginResponse(event)) {
+      response = await handleOriginResponse({
+        event,
+        manifest,
+        prerenderManifest,
+        routesManifest
+      });
+    } else {
+      response = await handleOriginRequest({
+        event,
+        manifest,
+        prerenderManifest,
+        routesManifest
+      });
+    }
+
+    // Remove blacklisted headers
+    if (response.headers) {
+      removeBlacklistedHeaders(response.headers);
+    }
+
+    const tHandlerEnd = now();
+
+    log("handler execution time", tHandlerBegin, tHandlerEnd);
+
+    return response;
+  } catch (e) {
+    console.error("Error occurred while handling the request", e);
+    throw e;
   }
-
-  // Remove blacklisted headers
-  if (response.headers) {
-    removeBlacklistedHeaders(response.headers);
-  }
-
-  const tHandlerEnd = now();
-
-  log("handler execution time", tHandlerBegin, tHandlerEnd);
-
-  return response;
 };
 
 const staticRequest = async (
@@ -253,6 +258,7 @@ const handleOriginRequest = async ({
 
   if (route.isPublicFile) {
     const { file } = route as PublicFileRoute;
+    request.headers["cookies"] = [];
     return await staticRequest(
       event,
       file,
@@ -386,7 +392,7 @@ const handleOriginResponse = async ({
           request,
           pageS3Path: s3Uri,
           eTag: response.headers["etag"]?.[0].value,
-          lastModified: response.headers["etag"]?.[0].value,
+          lastModified: response.headers["last-modified"]?.[0].value,
           pagePath: staticRoute.page,
           queueName: regenerationQueueName
         });
